@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+
+  //교차 도메인 환경에서 실행하기 위해 HTML(jquery_ajax_6.html)파일은 앞에서 작성한 PHP(member_test.php) 파일과
+  //서로 다른 서버에 저장합니다.
+  //http://kimyj.ivyro.net/9장/jquery_ajax_6_test.html 에서 확인 가능
+  var href="http://localhost/9장/member_test.php?callback=myFnc";
+  $.ajax({
+    url:href,
+    dataType:"jsonp"
+  }).done(function myFnc(data){
+    console.log(data);
+  });
+});
+</script>
+</head>
+<body>
+  <div class="wrap"></div>
+</body>
+</html>

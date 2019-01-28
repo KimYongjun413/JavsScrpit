@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	//서버 언어(PHP)를 사용하여 교차 도메인 데이터(XML)를 불러옴.
+	//PHP 언어는 서버가 서로 통신할 수 있는 cURL(Client URL Library Functions)메서드를 지원
+	//이 메서드를 사용하면 교차 도메인 데이터(XML)를 불러올 수 있음.
+	$.ajax({
+		url:"news_test.php",
+		dataType:"xml",
+		success: function(data) {
+			var $items = $(data).find("item");
+
+			if($items.length > 0) {//<item> 요소가 1개 이상인 경우 실행합니다.
+				$items = $items.slice(0,10);//$items 배열에 <item> 요소를 10개 가져옵니다.
+				var $ulTag = $("<ul />");
+				$.each($items, function(i, o) {
+					var $title = $(o).find("title").text();
+					var $link = $(o).find("link").text();
+					
+					var $aTag = $("<a />")
+					.attr({
+						"href":$link,
+						"target":"_blank"
+						})
+					.text($title);
+
+					var $liTag = $("<li />").append($aTag);
+
+					$ulTag.append($liTag);
+				});
+				$(".wrap").append($ulTag);
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>

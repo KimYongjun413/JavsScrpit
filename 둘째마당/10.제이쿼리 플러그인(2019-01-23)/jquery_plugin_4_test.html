@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Plugin </title>
+<style>
+	*{margin: 0;padding: 0;}
+	body{font-size: 12px;}
+	input{vertical-align: middle;}
+	#notice_wrap{
+		width: 300px;
+		position: absolute;
+		left: 30px;
+		top: 30px;
+		box-shadow:0 0 8px #000;
+	}
+	.closeWrap{
+		background-color: #000;
+		color:#fff;
+		text-align: right;
+		padding:5px 10px;
+	}
+	.closeWrap button{
+		margin-left: 20px;
+		cursor:pointer;
+	}
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+$(function() {
+	//쿠키("popup")의 값이 "none"이면 id값이 "notice_warp"인 요소를 숨깁니다.
+	if($.cookie("popup") == "none"){
+		$("#notice_wrap").hide();
+	}
+
+	//class 값이 "closeBtn"인 요소를 클릭하면 체크 박스의 체크 유무에 따라 쿠키를 생성하여 3일간 저장합니다.
+	var $expChk = $("expiresChk");
+	$(".closeBtn").on("click",closePop);
+
+	function closePop(){
+		if($expChk.is(":checked")){
+			$.cookie("popup","none",{expires:3, path:"/"});
+		}
+		$("#notice_wrap").fadeOut("fast");
+	}
+});
+</script>
+</head>
+<body>
+	<div id="notice_wrap">
+		<img src="images/window_object_1.jpg" alt="공지사항">
+		<p class="closeWrap">
+			<input type="checkbox" name="expiresChk" id="expiresChk">
+			<label for="expiresChk">3일 동안 이 창 열지않기</label>
+			<button class="closeBtn">닫기</button>
+	</p>
+	</div>  
+</body>
+</html>

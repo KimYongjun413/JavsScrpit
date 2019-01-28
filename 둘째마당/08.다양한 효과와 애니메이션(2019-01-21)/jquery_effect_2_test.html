@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+	//[버튼1]을 클릭하면 class 값이 "txt1"인 요소가 2초 동안 오른쪽 방향으로 500px만큼 이동하고
+	//글자의 크기가 30px 커집니다. 에니메이션이 완료되면 콜백 함수가 실행됩니다.
+	$(".btn1").on("click",function(){
+		$(".txt1").animate({
+		marginLeft:"500px",
+		fontSize:"30px"
+	},
+	2000, "linear", function(){
+		alert("모션 완료!");
+	});
+	})
+	
+	//[버튼2]를 클리갛ㄹ 때마다 class 값이 "txt2"인 요소가 1초동안 오른쪽 방향으로 50px씩 이동합니다.
+	$(".btn2").on("click",function(){
+		$(".txt2").animate({
+			marginLeft:"+=50px"
+		},1000);
+	});
+});
+</script>
+<style>
+	.txt1{background-color: aqua;}
+	.txt2{background-color: pink;}
+</style>
+</head>
+<body>
+	<p><button class="btn1">버튼1</button></p>
+	<span class="txt1">"500px" 이동</span>
+	<p><button class="btn2">버튼2</button></p>
+	<span class="txt2">"50px"씩 이동</span>
+</body>
+</html>

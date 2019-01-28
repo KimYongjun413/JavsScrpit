@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 함수 </title>
+<script>
+	var count = 0;
+
+	myFnc();//호이스팅:함수 호출문이 먼저 나와도 호이스팅 ㅂ아식이 저용되어 정상적으로 함수를 호출함.
+
+	function myFnc(){
+		count++;
+		document.write("hello" + count  , "<br>");
+	}
+
+	myFnc();
+
+	var theFnc = function(){
+		count++;
+		document.write("bye" + count , "<br>");
+	}
+
+	theFnc();
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

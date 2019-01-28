@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ){
+	//선택한 요소 다음에 새 요소를 생성합니다.
+	$("#wrap p:eq(2)").after("<P>After</P>");
+	$("<P>insertAfter</P>").insertAfter("#wrap p:eq(1)");
+
+	//선택한 요소 이전에 새 요소를 생성합니다.
+	$("#wrap p:eq(1)").before("<P>Before</P>");
+	$("<P>insertBefore</P>").insertBefore("#wrap p:eq(0)");
+});
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p>내용1</p>
+		<p>내용2</p>
+		<p>내용3</p>
+	</div>
+</body>
+</html>

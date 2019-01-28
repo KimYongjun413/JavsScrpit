@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Plugin </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+
+	//선택한 요소에 open 플러그인을 적용했습니다.
+	//이벤트 타입(eventType)과 메시지(message)를 매개변수로 전달하면
+	//해당 이벤트(eventType)가 발생할 때 지정한 메시지(Messgae)를 경고 창으로 나타낼 수 있습니다.
+	$.fn.open = function(eventType, message){
+		var ts = $(this);
+
+		$.each(ts, function(i,o){
+			$(o).on(eventType, function(){
+				alert(message);
+			});
+		});
+	}
+
+	$(".btn1").open("mouseover", "welcome!");
+	$(".btn2").open("click","hello!");
+});
+</script>
+</head>
+<body>
+	<p><button class="btn1">버튼1</button></p>
+	<p><button class="btn2">버튼2</button></p>
+	<p><button class="btn3">버튼3</button></p>
+</body>
+</html>

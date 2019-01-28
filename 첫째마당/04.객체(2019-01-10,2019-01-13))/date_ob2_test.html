@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 날짜 정보 객체 </title>
+<script>
+
+	var today = new Date();
+	var nowYear = today.getFullYear();
+
+	var theDate = new Date(nowYear, 11, 31);//Month 자리에 11 값은 12월을 뜻함.
+
+	document.write(theDate,"<br>");
+
+	var diffDate = theDate.getTime() - today.getTime();
+	/*
+	남은 일 수(밀리초) = 특정 날짜 객체 - 현재 날짜 객체
+
+	1초 = 1,000(msc)
+	1분(60초) = 1,000 * 60
+	1시간(60분) = 1,000 * 60 * 60
+	1일(60분*24) = 1,000 * 60 * 60 * 24
+	*/
+
+	var result = Math.ceil(diffDate / (60 * 1000 * 60 * 24));
+	document.write("D-day: " + result + "일 남았습니다.");
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function( ){
+	//선택한 요소의 맨 뒤에 새 요소를 생성합니다.
+	$("<li>appendTo</li>").appendTo("#listZone");
+	//선택한 요소의 맨 앞에 새 요소를 생성합니다.
+	$("#listZone").prepend("<li>prepend</li>");
+});
+</script>
+</head>
+<body>
+	<ul id="listZone">
+		<li>리스트</li>
+	</ul>
+</body>
+</html>
