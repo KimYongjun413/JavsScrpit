@@ -10,13 +10,13 @@
 	greenArr.splice(2, 1, "서초", "역삼");
 	console.log(greenArr);
 
-	var data1 = yellowArr.pop( );//실제로 Pop을 한다고 배열에 마지막 인덱스 값이 사라지진 않는다...(책은 사라진다고 했는데...)
-	var data2 = yellowArr.shift( );//이놈도 마찬가지... 뭐지??
-	console.log(yellowArr);
+	var data1 = yellowArr.pop( );
+	var data2 = yellowArr.shift( );
+	console.log(yellowArr);//C#처럼 도중의 값이 보이는 것이 아니라, 최종 결과값이 보인다. 밑에 주석을 풀면 ["미금","정자","수서"] 순이 된다.	
 
-	yellowArr.push(data2);
-	yellowArr.unshift(data1);
-	console.log(yellowArr);
+	//yellowArr.push(data2);
+	//yellowArr.unshift(data1);
+	//console.log(yellowArr);
 </script>
 </head>
 <body>
